@@ -18,9 +18,9 @@ that does the steps below.
 import the JSON module. JSON is short for JavaScript Object Notation and the
 `json` module allows complex data objects to be read in or written out
 in very clear notation. We'll use JSON a lot during the semester.
-  ```
-  import json
-  ```
+    ```
+    import json
+    ```
 1. Create four dictionaries called `ca`, `tx`, `fl`, and `ny`. They
 will be used to store information about the four US states with the largest
 populations in 2016. Each dictionary should have three keys: `po` for the
@@ -71,7 +71,8 @@ following:
 
     1. Create a variable called `po_str` that is equal to `"("+po+")"`.
 
-    1. Create a variable called `pct` that is equal to 100 times the ratio of the state's population to `uspop`. Use the `round()` call to
+    1. Create a variable called `pct` that is equal to 100 times the ratio 
+    of the state's population to `uspop`. Use the `round()` call to
     round the results to two decimal places.
 
     1. Print out `name`,`po_str` and `pct` (one line per state). Each line should look something like this:
@@ -107,13 +108,16 @@ create an empty list called `syr_list`.
 1. Use a for-loop to go through the letters in `syr_str`, look each one
 up in `to_nato`, and then append that word to the end of `syr_list`.
 
-1. Then join `syr_list` with spaces to create `syr_joined` and print out a
+1. Then join `syr_list` with spaces to create `syr_nato` and print out a
 message with `syr_str`,"is:",`syr_nato`.
 
 1. Create a variable `myname_str` equal to your first name *in lower case*, and
 then repeat the last couple of steps to translate it into its phonetic
 alphabet equivalent as `myname_nato` and print out a message like the
-one for Syracuse.
+one for Syracuse. Please note: if your first name has spaces or punctuation
+you'll need to omit them because the "nato-alphabet.txt" file we're using 
+only has letters: anything else will lead to an error. A more complex 
+script could work around that limitation.
 
 ### Submitting
 
