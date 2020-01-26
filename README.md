@@ -7,7 +7,13 @@ Practice with basic operations involving dictionaries in Python.
 ### Instructions
 
 The first part of this assigment is to build a script called `basics.py` 
-that does the following.
+that does the steps below. As usual, see `demo.py` for examples of most
+of the tasks.
+
+1. Include the line `import json` near the top of the file to import 
+the JSON module. JSON is short for JavaScript Object Notation and the 
+`json` module allows complex data objects to be read in or written out 
+in a very clear notation. We will use JSON a lot during the semester.
 
 1. Create four dictionaries called `ca`, `tx`, `fl`, and `ny`. They 
 will be used to store information about the four US states with the largest
@@ -17,23 +23,28 @@ population. Use the information below to set the corresponding values for
 each dictionary:
     ```
     name         po  pop
-    California:  CA  38654206
-    Florida:     FL  19934451
-    New York:    NY  19697457
-    Texas:       TX  26956435
+    California   CA  38654206
+    Florida      FL  19934451
+    New York     NY  19697457
+    Texas        TX  26956435
     ```
     To be clear, the data should be coded directly into the script: it is 
-    not necessary to store it in a file and then read the file. Reading
-    the data from a file is what would usually be done in a production 
-    context but we'll wait do do that until part 2.
+    not necessary to store it in a file and then read the file.
 
 1. Print the `ny` dictionary.
 
 1. Now create a list called `state_list` that has one element for each of the states. That is, it should consist of the four dictionaries created above: 
 `ca`, `tx`, `fl`,`ny`.
 
-1. Print `state_list`. Notice that it's a list of four elements and each 
-element is itself a dictionary.
+1. Print `state_list`. 
+
+1. Now print `state_list` with better formatting using the `dumps()` call 
+from the `json` module as follows:
+    ```
+    print( json.dumps(state_list,indent=4) )
+    ```
+    If all goes, well, it should be very clear that `state_list` is a list 
+    with four dictionaries as elements.
 
 1. Add a variable called `uspop` that is equal to 317899153, which was the 
 total population of the states in 2016 (it excludes Washington, DC, 
@@ -100,3 +111,7 @@ They are the most powerful and flexible of Python's data structures.
 up to translate a given string to its NATO equivalent and then print 
 out the result. You could then call the function on `syr_str` and then 
 `my_str` without having any duplicate code.
+
++ The `demo.py` file shows how to build a dictionary of dictionaries, which
+is more versatile than a list. However, that step is not required for this 
+exercise.

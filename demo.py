@@ -1,6 +1,8 @@
 #! /bin/python3
 #  Jan 20 (PJW)
 
+import json 
+
 #  Create a couple of simple dictionaries
 
 co = {'name':'Colorado', 'capital':'Denver'}
@@ -32,6 +34,9 @@ list1 = [co,ny]
 
 print('\nHere is list1:')
 print(list1)
+
+print('\nHere is list1 with better formatting:')
+print( json.dumps(list1,indent=4) )
 
 #  Now build a longer list by staring with the first two states
 #  and then extracting additional state information from a 
@@ -110,7 +115,7 @@ for state in list2:
     super_dict[name] = state 
     
 print('\nHere is super_dict:')
-print(super_dict)
+print( json.dumps(super_dict,indent=4) )
 
 #  Use that to list the state capitals with the states in 
 #  alphabetical order. 
