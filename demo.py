@@ -105,6 +105,23 @@ for state in list2:
     capital = state['capital']
     print("   ",name,"->",capital)
     
+#  Digression: example using round()
+
+numer = 20.0
+denom = 3.0
+ratio = numer/denom
+rounded = round(ratio,2)
+
+print('\n20/3 unrounded:',ratio)
+print('20/3 rounded to 2 decimal places:',rounded)
+
+#  Digression: looping through the letters of a string
+
+print("\nLooping through a string:")
+
+for letter in "python":
+    print(letter)
+
 #  Now make a dictionary of the dictionaries, which will be very 
 #  convenient for looking things up by state name. Use each state's name
 #  as the key and each state's individual dictionary as the value.
