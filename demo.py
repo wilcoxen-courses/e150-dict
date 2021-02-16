@@ -1,7 +1,7 @@
 #! /bin/python3
 #  Jan 20 (PJW)
 
-import json 
+import json
 
 #  Create a couple of simple dictionaries
 
@@ -38,61 +38,46 @@ print(list1)
 print('\nHere is list1 with better formatting:')
 print( json.dumps(list1,indent=4) )
 
-#  Now build a longer list by staring with the first two states
-#  and then extracting additional state information from a 
-#  list of strings. The strings have extra spaces and use 
-#  semicolons as separators to show how that kind of data
-#  can be parsed.
+#  Now build a longer list by reading a CSV data file. Open
+#  the file
 
-list2 = [co,ny]
+fh = open('states.csv')
 
-others = [
-    "  Massachusetts ; Boston     ; MA  ",
-    "     California ; Sacramento ; CA  ",
-    "          Texas ; Austin     ; TX  "
-    ]
+#  Create a new, blank list to hold the data
 
-#  Work through the list of strings one at a time
+list2 = []
 
-for line in others:
+#  Loop through the file building a new dictionary for each
+#  state and then adding it to the list.
+
+for line in fh:
 
     #  Removes leading and trailing space from the line. Not strictly
-    #  needed here but important when reading from a file and not 
+    #  needed here but important when reading from a file and not
     #  splitting on blank space.
-    
-    line = line.strip()  
-    
-    #  Now split the line on the semicolons
-    
-    words = line.split(';')
-    
-    #  Go through the list of words and remove any extra spaces
-    #  around them, making a new list in the process
-    
-    clean_words = []
-    for word in words:
-        clean_words.append( word.strip() )
-    
-    #  Here's a more elegant way to do the same thing using a
-    #  list comprehension, which is a compact way to build a new
-    #  list out of an old one:
-        
-    clean2_words = [word.strip() for word in words]
 
-    #  Now pull out the parts and make a new dictionary
-        
-    name    = clean2_words[0]
-    capital = clean2_words[1]
-    po      = clean2_words[2]
-    
-    new_dict = {'name':name, 'capital':capital, 'po':po}
-    
-    #  Append the new dictionary to the list
-    
-    list2.append(new_dict)
+    line = line.strip()
+
+    #  Split up the line
+
+    parts = line.split(',')
+
+    #  Store the result in a new dictionary for the current state.
+    #  Call strip() on each piece to get rid of excess space at the
+    #  start and end
+
+    new_state = {
+        'name':    parts[0].strip(),
+        'capital': parts[1].strip(),
+        'po':      parts[2].strip()
+        }
+
+    #  Add the new dictionary to the list
+
+    list2.append( new_state )
 
 #  Print out the longer list
-    
+
 print('\nHere is list2:')
 print(list2)
 
@@ -104,7 +89,7 @@ for state in list2:
     name = state['name']
     capital = state['capital']
     print("   ",name,"->",capital)
-    
+
 #  Digression: example using round()
 
 numer = 20.0
@@ -122,27 +107,27 @@ print("\nLooping through a string:")
 for letter in "python":
     print(letter)
 
-#  Now make a dictionary of the dictionaries, which will be very 
+#  Now make a dictionary of the dictionaries, which will be very
 #  convenient for looking things up by state name. Use each state's name
 #  as the key and each state's individual dictionary as the value.
-    
+
 super_dict = {}
 for state in list2:
     name = state['name']
-    super_dict[name] = state 
-    
+    super_dict[name] = state
+
 print('\nHere is super_dict:')
 print( json.dumps(super_dict,indent=4) )
 
-#  Use that to list the state capitals with the states in 
-#  alphabetical order. 
+#  Use that to list the state capitals with the states in
+#  alphabetical order.
 
 print("\nState capitals with states in alphabetical order:")
-    
-#  First, get the state names, since they are the keys to the 
-#  super_dict dictionary. Then go through them in alphabetical 
-#  order. For each name, the value in the dictionary will be 
-#  the dictionary for the individual state, so recover that 
+
+#  First, get the state names, since they are the keys to the
+#  super_dict dictionary. Then go through them in alphabetical
+#  order. For each name, the value in the dictionary will be
+#  the dictionary for the individual state, so recover that
 #  as state. Then look up the capital within it.
 
 names = super_dict.keys()
@@ -150,4 +135,4 @@ for name in sorted(names):
     state = super_dict[name]
     capital = state['capital']
     print('   ',name,'->',capital)
-    
+
