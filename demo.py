@@ -1,5 +1,9 @@
-#! /bin/python3
-#  Jan 20 (PJW)
+"""
+demo.py
+Spring 2022 PJW
+
+Demonstrate dictionaries
+"""
 
 import json
 
@@ -52,24 +56,25 @@ list2 = []
 
 for line in fh:
 
-    #  Removes leading and trailing space from the line. Not strictly
-    #  needed here but important when reading from a file and not
-    #  splitting on blank space.
-
-    line = line.strip()
-
-    #  Split up the line
+    #  Split up the line at the commas
 
     parts = line.split(',')
 
+    #  Use a list comprehension to through the parts and remove any 
+    #  leading or trailing blank space
+        
+    clean = [item.strip() for item in parts]
+
+    #  Print both lists to show the impact
+
+    print('original:',parts,' after strip:',clean)
+
     #  Store the result in a new dictionary for the current state.
-    #  Call strip() on each piece to get rid of excess space at the
-    #  start and end
 
     new_state = {
-        'name':    parts[0].strip(),
-        'capital': parts[1].strip(),
-        'po':      parts[2].strip()
+        'name':    clean[0],
+        'capital': clean[1],
+        'po':      clean[2]
         }
 
     #  Add the new dictionary to the list
@@ -79,7 +84,7 @@ for line in fh:
 #  Print out the longer list
 
 print('\nHere is list2:')
-print(list2)
+print(json.dumps(list2,indent=4))
 
 #  Now go through list2 and show all the capitals
 
@@ -135,4 +140,3 @@ for name in sorted(names):
     state = super_dict[name]
     capital = state['capital']
     print('   ',name,'->',capital)
-

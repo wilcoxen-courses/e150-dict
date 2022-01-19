@@ -1,39 +1,39 @@
 # Exercise: Dictionary Basics
 
-### Summary
+## Summary
 
 Practice with basic operations involving dictionaries in Python.
 
-### Input Data
+## Input Data
 
-One input file is provided, **nato-alphabet.txt**, that provides the standard words
-used for spelling things verbally using the NATO phonetic alphabet.
+One input file is provided, **nato-alphabet.txt**, that provides the standard words used for spelling things verbally using the NATO phonetic alphabet.
 
-### Deliverables
+## Deliverables
 
 There are two deliverables for this assignment: **basics.py** and **nato.py**.
 
-### Instructions
+## Instructions
 
-**A. Script basics.py**
+### A. Script basics.py
 
-The first part of this assigment is to build a script called `basics.py` that does the steps below.
+The first part of this assignment is to build a script called `basics.py` that does the steps below.
 
 1. Include the line `import json` (shown below) near the top of the file to import the JSON module. JSON is short for JavaScript Object Notation and the `json` module allows complex data objects to be read in or written out in very clear notation. We'll use JSON a lot during the semester.
 
-    ```
+    ```python
     import json
     ```
 
 1. Create four dictionaries called `ca`, `tx`, `fl`, and `ny`. They will be used to store information about the four US states with the largest populations in 2016. Each dictionary should have three keys: `po` for the state's two-letter postal code, `name` for its name, and `pop` for its population. Use the information below to set the corresponding values for each dictionary:
 
-    ```
+    ```text
     name         po  pop
     California   CA  38654206
     Florida      FL  19934451
     New York     NY  19697457
     Texas        TX  26956435
     ```
+
     To be clear, the data should be coded directly into the script: it is not necessary to store it in a file and then read the file.
 
 1. Print the `ny` dictionary.
@@ -44,7 +44,7 @@ The first part of this assigment is to build a script called `basics.py` that do
 
 1. Now print `state_list` with better formatting using the `dumps()` call from the `json` module as shown below. The name "dumps" is short for "dump (write out) to a string" and the indent parameter says to indent each level of the object being printed by 4 spaces. It will be clearer from the output what it does.
 
-    ```
+    ```python
     print( json.dumps(state_list,indent=4) )
     ```
 
@@ -56,33 +56,29 @@ The first part of this assigment is to build a script called `basics.py` that do
 
 1. Loop through `state_list` using `state` as the running variable (the variable name following `for` in a for-loop). Within the loop, do the following:
 
-    1. Create variables `name`, `po`, and `pop` that are equal to that
-    state's name, postal code, and population.
+    1. Create variables `name`, `po`, and `pop` that are equal to that state's name, postal code, and population.
 
-    1. Create a variable called `po_str` that is equal to `"("+po+")"`.
+    1. Create a variable called `po_str` that is equal to a string formed like this: `"("+po+")"`.
 
-    1. Create a variable called `pct` that is equal to 100 times the ratio
-    of the state's population to `uspop`. Use the `round()` call to
-    round the results to two decimal places.
+    1. Create a variable called `pct` that is equal to 100 times the ratio of the state's population to `uspop`. Use the `round()` call to round the results to two decimal places.
 
-    1. Print out `name`,`po_str` and `pct` (one line per state). Each line
-    should look something like this:
+    1. Print out `name`,`po_str` and `pct` (one line per state). Each line should look something like this:
 
-        ```
+        ```text
         California (CA) 12.16
         ```
 
-**B. Script nato.py**
+### B. Script nato.py
 
 For the second part of the assignment, build a script called `nato.py` that does the following:
 
-1. Create a variable called `natofile` equal to "nato-alphabet.txt".
+1. Create a variable called `natofile` equal to the string "nato-alphabet.txt".
 
 1. Create an empty dictionary called `to_nato`.
 
-1. Opens `natofile`.
+1. Open `natofile`.
 
-1. Loops through the lines of the file doing the following to each line:
+1. Loop through the lines of the file doing the following to each line:
 
     1. Use the `strip()` call to remove leading and trailing blank space;
 
@@ -100,11 +96,11 @@ For the second part of the assignment, build a script called `nato.py` that does
 
 1. Create a variable `myname_str` equal to your first name *in lower case*, and then repeat the last couple of steps to translate it into its phonetic alphabet equivalent as `myname_nato` and print out a message like the one for Syracuse. Please note: if your first name has spaces or punctuation you'll need to omit them because the "nato-alphabet.txt" file we're using only has letters: anything else will lead to an error. A more complex script could work around that limitation.
 
-### Submitting
+## Submitting
 
 Once you're happy with everything and have committed all of the changes to your local repository, please push the changes to GitHub. At that point, you're done: you have submitted your answer.
 
-### Tips
+## Tips
 
 + This just scratches the surface of what can be done with dictionaries. They are the most powerful and flexible of Python's data structures.
 
