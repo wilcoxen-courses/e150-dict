@@ -2,7 +2,7 @@
 demo.py
 Spring 2022 PJW
 
-Demonstrate dictionaries
+Demonstrate some key features of dictionaries.
 """
 
 import json
