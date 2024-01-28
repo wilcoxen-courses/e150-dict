@@ -102,7 +102,7 @@ Once you're happy with everything and have committed all of the changes to your 
 
 ## Tips
 
-+ This just scratches the surface of what can be done with dictionaries. They are the most powerful and flexible of Python's data structures.
++ This just scratches the surface of what can be done with dictionaries. They are the most powerful and flexible of Python's core data structures.
 
 + If you know how to define and use functions, you may want to set one up to translate a given string to its NATO equivalent and then print out the result. You could then call the function on `syr_str` and then `my_str` without having any duplicate code.
 
