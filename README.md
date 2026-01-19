@@ -54,7 +54,7 @@ The first part of this assignment is to build a script called `basics.py` that d
 
 1. Print a message `Percent of the US population:` to create a heading for what comes next.
 
-1. Loop through `state_list` using `state` as the running variable (the variable name following `for` in a for-loop). Within the loop, do the following:
+1. Loop through `state_list` using `state` as the loop variable (the variable name following `for` in a for-loop). Within the loop, do the following:
 
     1. Create variables `name`, `po`, and `pop` that are equal to that state's name, postal code, and population.
 
